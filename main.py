@@ -51,3 +51,22 @@ def reset_game():
     current_display = display_word(word_to_guess, guessed_letters)
     word_label.config(text=f"Word: {current_display}")
     attempts_left_label.config(text=f"Attempts Left: {attempts_left}")
+
+# GUI setup
+root = tk.Tk()
+root.title("Hangman")
+
+word_to_guess = choose_word()
+max_attempts = 6
+guessed_letters = []
+attempts_left = max_attempts
+
+word_label = tk.Label(root, text=f"Word: {display_word(word_to_guess, guessed_letters)}")
+word_label.pack()
+
+attempts_left_label = tk.Label(root, text=f"Attempts Left: {attempts_left}")
+attempts_left_label.pack()
+
+entry = tk.Entry(root, width=10)
+entry.pack()
+
