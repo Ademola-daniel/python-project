@@ -36,3 +36,18 @@ def guess_letter():
             messagebox.showinfo("Game Over", f"Sorry, you're out of attempts. The word was: {word_to_guess}")
             reset_game()
         return
+
+current_display = display_word(word_to_guess, guessed_letters)
+    word_label.config(text=f"Word: {current_display}")
+    if all(letter in guessed_letters for letter in word_to_guess):
+        messagebox.showinfo("Congratulations", f"Congratulations! You've guessed the word: {word_to_guess}")
+        reset_game()
+
+def reset_game():
+    global guessed_letters, attempts_left, word_to_guess
+    guessed_letters = []
+    attempts_left = max_attempts
+    word_to_guess = choose_word()
+    current_display = display_word(word_to_guess, guessed_letters)
+    word_label.config(text=f"Word: {current_display}")
+    attempts_left_label.config(text=f"Attempts Left: {attempts_left}")
