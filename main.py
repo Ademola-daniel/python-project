@@ -70,3 +70,11 @@ attempts_left_label.pack()
 entry = tk.Entry(root, width=10)
 entry.pack()
 
+guess_button = tk.Button(root, text="Guess", command=guess_letter)
+guess_button.pack()
+
+reset_button = tk.Button(root, text="Reset", command=reset_game)
+reset_button.pack()
+
+root.mainloop()
+
